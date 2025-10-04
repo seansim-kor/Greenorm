@@ -320,6 +320,238 @@
             opacity: 0.7;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow-y: auto;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            margin: 3% auto;
+            padding: 0;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideDown 0.4s;
+            overflow: hidden;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 2rem 2.5rem;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .modal-header .location-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .close {
+            color: white;
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            font-size: 2.5rem;
+            font-weight: 300;
+            cursor: pointer;
+            transition: transform 0.3s;
+            line-height: 1;
+        }
+
+        .close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2.5rem;
+            color: #333;
+        }
+
+        .modal-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .modal-section h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #2ecc71;
+            display: inline-block;
+        }
+
+        .modal-subsection {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .modal-subsection h4 {
+            color: #2ecc71;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-subsection h4::before {
+            content: '▸';
+            color: #2ecc71;
+            font-size: 1.5rem;
+        }
+
+        .modal-subsection ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-subsection li {
+            padding: 0.6rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .modal-subsection li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2ecc71;
+            font-weight: 700;
+        }
+
+        .comparison-image {
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .comparison-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .image-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem 1rem 1rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .highlight-box .big-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-card-clickable {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .story-card-clickable::after {
+            content: '👁️ Click for details';
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            background: rgba(46,204,113,0.9);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+
+        .story-card-clickable:hover::after {
+            opacity: 1;
+        }
+
         .story-card:hover {
             background: rgba(255,255,255,0.15);
             transform: scale(1.05);
@@ -641,7 +873,7 @@
                 <div class="story-result">+35%</div>
                 <p>Yield increase with 5-10% less fruit drop</p>
             </div>
-            <div class="story-card">
+            <div class="story-card story-card-clickable" onclick="openModal()">
                 <div class="crop-icon">🌴</div>
                 <div class="story-location">Indonesia·Myanmar - Palm Oil</div>
                 <div class="story-title">Palm Oil Plantation</div>
@@ -693,5 +925,113 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal for Palm Oil Case Study -->
+    <div id="palmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>🌴 Palm Oil Plantation Success Story</h2>
+                <div class="location-badge">Myanmar & Indonesia - 2018</div>
+            </div>
+            <div class="modal-body">
+                <!-- Comparison Images -->
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="https://raw.githubusercontent.com/seansim-kor/Greenorm/main/perfect-solution-palm.png" alt="Perfect Solution Palm Tree">
+                        <div class="image-label">Perfect Solution</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://raw.githubusercontent.com/seansim-kor/Greenorm/main/traditional-palm.png" alt="Traditional Fertilizer Palm Tree">
+                        <div class="image-label">Traditional Fertilizer</div>
+                    </div>
+                </div>
+
+                <!-- Current Situation -->
+                <div class="modal-section">
+                    <h3>Current Situation</h3>
+                    
+                    <div class="modal-subsection">
+                        <h4>Growing Environment</h4>
+                        <ul>
+                            <li>Requires intense sunlight and 91 liters of water per day in tropical monsoon climate</li>
+                            <li>Fertilizer accounts for 80% of production costs</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-subsection">
+                        <h4>Problems with Traditional Methods</h4>
+                        <ul>
+                            <li>40% of chemical fertilizers replaced by compost made from palm oil production residue</li>
+                            <li>Fertilizer residues react with other substances, causing antagonistic effects</li>
+                            <li>Accelerated soil degradation due to salinity accumulation</li>
+                            <li>Growth deficiencies in palm trees, making it impossible to harvest desired palms</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Effects After Application -->
+                <div class="modal-section">
+                    <h3>Effects After Perfect Solution Application</h3>
+                    
+                    <div class="modal-subsection">
+                        <h4>Enhanced Productivity</h4>
+                        <ul>
+                            <li>100% crop absorption promotes growth, increases sweetness, and enhances yield</li>
+                            <li>50% reduction in production costs (compared to conventional chemical fertilizers)</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-subsection">
+                        <h4>Soil & Environmental Improvement</h4>
+                        <ul>
+                            <li>Neutralizes acidic and alkaline soils, resolves salinity accumulation</li>
+                            <li>Improves soil quality with sufficient nutrient supply</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-subsection">
+                        <h4>Pest Management</h4>
+                        <ul>
+                            <li>Enhances immunity to repel various bacteria</li>
+                            <li>Repels insects and moths with its smell, making prevention possible</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <div class="big-number">-50%</div>
+                        <div>Production Cost Reduction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('palmModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('palmModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('palmModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>

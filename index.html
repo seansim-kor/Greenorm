@@ -248,8 +248,8 @@
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #2ecc71, #27ae60);
             border-radius: 15px;
             display: flex;
@@ -257,6 +257,22 @@
             justify-content: center;
             font-size: 2rem;
             margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .feature-highlight {
+            position: absolute;
+            top: -12px;
+            right: -25px;
+            background: #ff6b6b;
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 800;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.4);
+            white-space: nowrap;
+            z-index: 10;
         }
 
         .feature-title {
@@ -293,6 +309,15 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s;
+            position: relative;
+        }
+
+        .crop-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            opacity: 0.7;
         }
 
         .story-card:hover {
@@ -301,15 +326,18 @@
         }
 
         .story-location {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            opacity: 0.9;
+            margin-bottom: 0.8rem;
+            color: #2ecc71;
         }
 
         .story-title {
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 400;
             margin-bottom: 1rem;
+            opacity: 0.85;
         }
 
         .story-result {
@@ -450,9 +478,13 @@
             opacity: 0.7;
         }
 
-        @media (max-width: 768px) {
+                    @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .product-name {
+                font-size: 2.5rem;
             }
 
             .hero .subtitle {
@@ -521,32 +553,48 @@
         <h2 class="section-title">Revolutionary Features</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🌱</div>
+                <div class="feature-icon">
+                    🌱
+                    <span class="feature-highlight">95%+</span>
+                </div>
                 <h3 class="feature-title">Innovative Absorption</h3>
                 <p class="feature-description">With our organic–inorganic hybrid structure technology, we deliver a startling absorption rate above 95% — far superior vs. typical imported fertilizers (30–35%)</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">📈</div>
+                <div class="feature-icon">
+                    📈
+                    <span class="feature-highlight">+40%</span>
+                </div>
                 <h3 class="feature-title">Outstanding Performance</h3>
                 <p class="feature-description">Verified through domestic and international trials: 25% to 40% yield increase, improvements in fruit sugar content, size, freshness retention</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🌍</div>
+                <div class="feature-icon">
+                    🌍
+                    <span class="feature-highlight">1 Day</span>
+                </div>
                 <h3 class="feature-title">Soil Environment Restoration</h3>
                 <p class="feature-description">We neutralize acidified or alkaline soils in just one day, resolving salt build-up and creating a healthy soil environment</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">✅</div>
+                <div class="feature-icon">
+                    ✅
+                    <span class="feature-highlight">pH 6-7</span>
+                </div>
                 <h3 class="feature-title">Product Safety</h3>
                 <p class="feature-description">Our solution is pH neutral (6–7) and harmless to water, soil, and humans. Made from food-grade materials</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">💰</div>
+                <div class="feature-icon">
+                    💰
+                </div>
                 <h3 class="feature-title">Cost Efficiency</h3>
                 <p class="feature-description">1 liter diluted into 1,000 liters can treat up to 5,000 m², making it extremely cost-effective</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🔬</div>
+                <div class="feature-icon">
+                    🔬
+                </div>
                 <h3 class="feature-title">Patented Technology</h3>
                 <p class="feature-description">Patent-granted ionized calcium solution with enhanced calcium content (Patent No. 10-1838075)</p>
             </div>
@@ -559,46 +607,53 @@
         <h2 class="section-title">Proven Success Stories</h2>
         <div class="stories-grid">
             <div class="story-card">
-                <div class="story-location">🇨🇳 China - Rice</div>
-                <div class="story-title">Northeast China</div>
+                <div class="crop-icon">🌾</div>
+                <div class="story-location">China (Northeast) - Rice</div>
+                <div class="story-title">Heilongjiang, Jilin, Liaoning</div>
                 <div class="story-result">+30%</div>
                 <p>Yield increase with +50 grains per panicle</p>
             </div>
             <div class="story-card">
-                <div class="story-location">🇨🇳 China - Cotton</div>
-                <div class="story-title">Xinjiang</div>
+                <div class="crop-icon">🌿</div>
+                <div class="story-location">China (Xinjiang) - Cotton</div>
+                <div class="story-title">Xinjiang Province</div>
                 <div class="story-result">+40%</div>
                 <p>Yield improvement with faster growth and immunity boost</p>
             </div>
             <div class="story-card">
-                <div class="story-location">🇻🇳 Vietnam - Rice</div>
-                <div class="story-title">Vietnamese Rice</div>
+                <div class="crop-icon">🌾</div>
+                <div class="story-location">Vietnam - Rice</div>
+                <div class="story-title">Vietnamese Rice Farms</div>
                 <div class="story-result">+42%</div>
                 <p>Rapid growth with better immunity and pest resistance</p>
             </div>
             <div class="story-card">
-                <div class="story-location">🇰🇷 Korea - Onion</div>
-                <div class="story-title">Jangseong</div>
+                <div class="crop-icon">🧅</div>
+                <div class="story-location">Korea (Jangseong) - Onion</div>
+                <div class="story-title">Jangseong County</div>
                 <div class="story-result">+60%</div>
                 <p>Bulb growth and yield increase</p>
             </div>
             <div class="story-card">
-                <div class="story-location">🇰🇷 Korea - Pear</div>
-                <div class="story-title">Naju</div>
+                <div class="crop-icon">🍐</div>
+                <div class="story-location">Korea (Naju) - Pear</div>
+                <div class="story-title">Naju Region</div>
                 <div class="story-result">+35%</div>
                 <p>Yield increase with 5-10% less fruit drop</p>
             </div>
             <div class="story-card">
-                <div class="story-location">🇰🇷 Korea - Strawberry</div>
-                <div class="story-title">Damyang</div>
-                <div class="story-result">+25%</div>
-                <p>Better quality: size, sugar, and aroma</p>
+                <div class="crop-icon">🌴</div>
+                <div class="story-location">Indonesia·Myanmar - Palm Oil</div>
+                <div class="story-title">Palm Oil Plantation</div>
+                <div class="story-result">-50%</div>
+                <p>Production cost reduction compared to conventional fertilizers</p>
             </div>
         </div>
     </section>
 
     <!-- Technology Section -->
     <section class="technology" id="technology">
+        <div class="section-subtitle">Perfect Solution</div>
         <h2 class="section-title">Cutting-Edge Technology</h2>
         <div class="tech-content">
             <div class="tech-visual">⚗️</div>

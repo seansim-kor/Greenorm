@@ -3,203 +3,909 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greenorm - Smart Agriculture Solution</title>
+    <title>Greenorm - Revolutionary Agricultural Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        :root {
+            --primary-green: #10B981;
+            --deep-forest: #047857;
+            --sky-blue: #0EA5E9;
+            --soft-mint: #D1FAE5;
+            --pure-white: #FFFFFF;
+            --deep-navy: #1E293B;
+            --sunshine: #FBBF24;
+            --ocean-blue: #3B82F6;
+            --light-gray: #F1F5F9;
+            --border-gray: #E2E8F0;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--deep-navy);
             overflow-x: hidden;
         }
-        
+
         /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border-gray);
         }
-        
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
         .logo {
-            font-size: 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary-green);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, var(--primary-green), var(--deep-forest));
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
             letter-spacing: 0.5px;
         }
-        
+
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
+            align-items: center;
         }
-        
+
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: var(--deep-navy);
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s;
+            position: relative;
         }
-        
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s;
+        }
+
         .nav-links a:hover {
-            color: #2ecc71;
+            color: var(--primary-green);
         }
-        
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--primary-green);
+            color: white !important;
+            padding: 0.7rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--deep-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 8rem 6% 4rem;
+            background: linear-gradient(135deg, #F0FDF4 0%, #ECFEFF 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .hero-badge::before {
+            content: '🌱';
+            font-size: 1.2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--deep-navy);
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary-green), var(--sky-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #64748B;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-green);
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--deep-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--deep-navy);
+            border: 2px solid var(--border-gray);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748B;
+        }
+
+        .hero-visual {
+            position: relative;
+            z-index: 2;
+            height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .visual-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-green), var(--sky-blue));
+        }
+
+        .product-showcase {
             text-align: center;
-            padding: 0 5%;
-            margin-top: 60px;
         }
-        
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: #2d3436;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero-content p {
-            font-size: 1.3rem;
-            color: #636e72;
+
+        .product-image {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, var(--soft-mint), white);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
             margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
+            box-shadow: 0 10px 30px rgba(16,185,129,0.15);
         }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
+
+        .product-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+        }
+
+        .product-tag {
+            background: var(--soft-mint);
+            color: var(--deep-forest);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 1s ease 0.4s backwards;
         }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(46, 204, 113, 0.3);
-        }
-        
+
         /* Features Section */
         .features {
-            padding: 5rem 5%;
+            padding: 8rem 6%;
             background: white;
         }
-        
-        .section-title {
+
+        .section-header {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2d3436;
+            margin-bottom: 5rem;
         }
-        
+
+        .section-badge {
+            display: inline-block;
+            background: var(--soft-mint);
+            color: var(--primary-green);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #64748B;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
-        
+
         .feature-card {
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 15px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: white;
+            border: 2px solid var(--border-gray);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--sky-blue));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary-green);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(16,185,129,0.15);
         }
-        
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--soft-mint), white);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
         }
-        
-        .feature-card h3 {
+
+        .feature-badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--primary-green);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .feature-title {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            color: #2ecc71;
+            color: var(--deep-navy);
         }
-        
-        /* Stats Section */
-        .stats {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
+
+        .feature-description {
+            color: #64748B;
+            line-height: 1.7;
+        }
+
+        /* Success Stories */
+        .success-stories {
+            padding: 8rem 6%;
+            background: var(--deep-navy);
             color: white;
         }
-        
-        .stats-grid {
+
+        .stories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            text-align: center;
         }
-        
-        .stat-item h2 {
+
+        .story-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .story-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-8px);
+            border-color: var(--primary-green);
+        }
+
+        .story-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2.5rem;
+            opacity: 0.6;
+        }
+
+        .story-location {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 0.8rem;
+        }
+
+        .story-title {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-result {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-green);
             margin-bottom: 0.5rem;
         }
-        
-        .stat-item p {
-            font-size: 1.1rem;
+
+        .story-description {
+            font-size: 0.95rem;
             opacity: 0.9;
+            line-height: 1.6;
         }
-        
+
+        /* Technology Section */
+        .technology {
+            padding: 8rem 6%;
+            background: white;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tech-visual {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, var(--primary-green), var(--deep-forest));
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+        }
+
+        .tech-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--deep-navy);
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: var(--light-gray);
+            border-radius: 12px;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+
+        .tech-list li:hover {
+            background: var(--soft-mint);
+            transform: translateX(8px);
+        }
+
+        .tech-list li::before {
+            content: '✓';
+            color: var(--primary-green);
+            font-weight: 800;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 6%;
+            background: linear-gradient(135deg, var(--primary-green), var(--deep-forest));
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .cta-buttons .btn-primary {
+            background: white;
+            color: var(--primary-green);
+        }
+
+        .cta-buttons .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
         /* Footer */
         footer {
-            background: #2d3436;
+            padding: 4rem 6% 2rem;
+            background: var(--deep-navy);
             color: white;
-            text-align: center;
-            padding: 2rem 5%;
         }
-        
-        /* Animations */
-        @keyframes fadeInUp {
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            opacity: 0.6;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 3% auto;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 24px;
+            overflow: hidden;
+            animation: slideUp 0.4s;
+        }
+
+        @keyframes slideUp {
             from {
+                transform: translateY(50px);
                 opacity: 0;
-                transform: translateY(30px);
             }
             to {
-                opacity: 1;
                 transform: translateY(0);
+                opacity: 1;
             }
         }
-        
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--deep-forest));
+            color: white;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .close {
+            color: white;
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 3rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .image-card {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .modal-section {
+            margin-bottom: 3rem;
+        }
+
+        .modal-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            color: var(--deep-navy);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--primary-green);
+        }
+
+        .modal-subsection {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-subsection h4 {
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-subsection ul {
+            list-style: none;
+        }
+
+        .modal-subsection li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .modal-subsection li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-green), var(--deep-forest));
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .highlight-box .big-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
         /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 6rem 4% 4rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero-content h1 {
+            nav {
+                padding: 1rem 4%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
                 font-size: 2rem;
             }
-            
-            .hero-content p {
-                font-size: 1rem;
+
+            .features-grid,
+            .stories-grid {
+                grid-template-columns: 1fr;
             }
-            
-            .nav-links {
-                gap: 1rem;
+
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -207,77 +913,372 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">🌱 Greenorm</div>
+        <div class="logo-container">
+            <div class="logo">GREENORM</div>
+            <div class="logo-badge">AGRITECH</div>
+        </div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#stats">Impact</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#features">Technology</a></li>
+            <li><a href="#success">Success Stories</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact" class="nav-cta">Get Started →</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="hero-content">
-            <h1>Welcome to Greenorm</h1>
-            <p>Revolutionizing Agriculture with Smart Technology</p>
-            <a href="#features" class="cta-button">Discover More</a>
+            <div class="hero-badge">
+                Premium Liquid Fertilizer
+            </div>
+            <h1>
+                The Future of<br>
+                <span class="highlight">Smart Agriculture</span>
+            </h1>
+            <p class="hero-subtitle">
+                Revolutionary liquid fertilizer achieving 95%+ absorption rate. Transform your farming with eco-friendly, ultra-concentrated solution backed by patented technology.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn-primary">
+                    Start Your Transformation →
+                </a>
+                <a href="#success" class="btn-secondary">
+                    View Success Stories
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">95%+</div>
+                    <div class="stat-label">Absorption Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">Yield Increase</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1 Day</div>
+                    <div class="stat-label">Soil Recovery</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="visual-card">
+                <div class="product-showcase">
+                    <div class="product-image">🌱</div>
+                    <h3 class="product-name">Perfect Solution</h3>
+                    <div class="product-tag">Ultra-Concentrated Formula</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2 class="section-title">Our Solutions</h2>
+        <div class="section-header">
+            <div class="section-badge">INNOVATIVE TECHNOLOGY</div>
+            <h2 class="section-title">Why Perfect Solution?</h2>
+            <p class="section-subtitle">
+                Advanced nano-colloidal technology delivering unprecedented results in modern agriculture
+            </p>
+        </div>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🌾</div>
-                <h3>Smart Monitoring</h3>
-                <p>Real-time crop health monitoring using AI and IoT sensors for optimal growth conditions.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💧</div>
-                <h3>Water Management</h3>
-                <p>Intelligent irrigation systems that conserve water while maximizing crop yield.</p>
+                <div class="feature-icon">🔬</div>
+                <div class="feature-badge">95%+</div>
+                <h3 class="feature-title">Superior Absorption</h3>
+                <p class="feature-description">
+                    Organic-inorganic hybrid structure technology delivers 95%+ absorption rate, far exceeding traditional fertilizers at 30-35%
+                </p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
-                <h3>Data Analytics</h3>
-                <p>Comprehensive insights and predictions to help you make informed farming decisions.</p>
+                <div class="feature-badge">+40%</div>
+                <h3 class="feature-title">Proven Performance</h3>
+                <p class="feature-description">
+                    25-40% yield increase verified through international trials. Enhanced fruit quality, size, and sweetness
+                </p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🌍</div>
-                <h3>Sustainability</h3>
-                <p>Eco-friendly practices that reduce environmental impact and promote long-term soil health.</p>
+                <div class="feature-badge">1 Day</div>
+                <h3 class="feature-title">Rapid Soil Recovery</h3>
+                <p class="feature-description">
+                    Neutralizes acidified or alkaline soils in just one day, resolving salt accumulation and restoring soil health
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <div class="feature-badge">pH 6-7</div>
+                <h3 class="feature-title">100% Safe</h3>
+                <p class="feature-description">
+                    pH neutral formula made from food-grade materials. Completely harmless to water, soil, and human health
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3 class="feature-title">Cost Efficient</h3>
+                <p class="feature-description">
+                    1 liter treats up to 5,000 m² when diluted. Drastically reduces fertilization costs while improving results
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3 class="feature-title">Patented Technology</h3>
+                <p class="feature-description">
+                    Patent-granted ionized calcium solution with enhanced absorption (Patent No. 10-1838075)
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats" id="stats">
-        <h2 class="section-title">Our Impact</h2>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h2>50%</h2>
-                <p>Water Savings</p>
+    <!-- Success Stories -->
+    <section class="success-stories" id="success">
+        <div class="section-header">
+            <div class="section-badge" style="background: rgba(255,255,255,0.15); color: var(--primary-green);">GLOBAL IMPACT</div>
+            <h2 class="section-title" style="color: white;">Proven Success Worldwide</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">
+                Real results from farmers across Asia, transforming agriculture one field at a time
+            </p>
+        </div>
+        <div class="stories-grid">
+            <div class="story-card">
+                <div class="story-icon">🌾</div>
+                <div class="story-location">China (Northeast) - Rice</div>
+                <div class="story-title">Heilongjiang, Jilin, Liaoning</div>
+                <div class="story-result">+30%</div>
+                <p class="story-description">Yield increase with +50 grains per panicle. pH neutralized from 9-10 to 6 in one day</p>
             </div>
-            <div class="stat-item">
-                <h2>35%</h2>
-                <p>Yield Increase</p>
+            <div class="story-card">
+                <div class="story-icon">🌿</div>
+                <div class="story-location">China (Xinjiang) - Cotton</div>
+                <div class="story-title">Xinjiang Province</div>
+                <div class="story-result">+40%</div>
+                <p class="story-description">Significant yield improvement with accelerated growth and enhanced immunity</p>
             </div>
-            <div class="stat-item">
-                <h2>10K+</h2>
-                <p>Farms Connected</p>
+            <div class="story-card">
+                <div class="story-icon">🌾</div>
+                <div class="story-location">Vietnam - Rice</div>
+                <div class="story-title">Vietnamese Rice Farms</div>
+                <div class="story-result">+42%</div>
+                <p class="story-description">Rapid growth with superior immunity and natural pest resistance</p>
             </div>
-            <div class="stat-item">
-                <h2>24/7</h2>
-                <p>Monitoring</p>
+            <div class="story-card">
+                <div class="story-icon">🧅</div>
+                <div class="story-location">Korea (Jangseong) - Onion</div>
+                <div class="story-title">Jangseong County</div>
+                <div class="story-result">+60%</div>
+                <p class="story-description">Remarkable bulb growth and overall yield increase</p>
+            </div>
+            <div class="story-card">
+                <div class="story-icon">🍐</div>
+                <div class="story-location">Korea (Naju) - Pear</div>
+                <div class="story-title">Naju Region</div>
+                <div class="story-result">+35%</div>
+                <p class="story-description">Yield increase with 5-10% reduction in fruit drop</p>
+            </div>
+            <div class="story-card" style="cursor: pointer;" onclick="openModal()">
+                <div class="story-icon">🌴</div>
+                <div class="story-location">Indonesia·Myanmar - Palm Oil</div>
+                <div class="story-title">Palm Oil Plantation</div>
+                <div class="story-result">-50%</div>
+                <p class="story-description">Production cost reduction vs conventional fertilizers. Click for details →</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="about">
+        <div class="section-header">
+            <div class="section-badge">PATENTED INNOVATION</div>
+            <h2 class="section-title">Cutting-Edge Technology</h2>
+            <p class="section-subtitle">
+                Nano-colloidal innovation delivering 100% nutrient dissolution and absorption
+            </p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-visual">
+                ⚗️
+            </div>
+            <div class="tech-content">
+                <h3>Organic-Inorganic Hybrid Method</h3>
+                <ul class="tech-list">
+                    <li>Revolutionary nano-colloidal concentrated solution technology</li>
+                    <li>100% water-soluble formula ensuring nearly 100% nutrient uptake by plants</li>
+                    <li>pH 6 neutral solution neutralizes both acidic and alkaline soils instantly</li>
+                    <li>Contains 13 essential growth elements (N, P, K, Ca, Mg, B, and more)</li>
+                    <li>Patented ionized calcium technology for enhanced absorption and plant immunity</li>
+                    <li>Eliminates salt accumulation and continuous cropping issues</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Farm?</h2>
+            <p>Join thousands of farmers worldwide experiencing revolutionary results with Perfect Solution</p>
+            <div class="cta-buttons">
+                <a href="tel:+60172018149" class="btn-primary">
+                    📞 Contact Sean Sim
+                </a>
+                <a href="#features" class="btn-secondary">
+                    Learn More About Technology
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <p>&copy; 2025 Greenorm. Building the future of sustainable agriculture.</p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>GREENORM</h3>
+                <p>
+                    Malaysia's leading distributor of Perfect Solution liquid fertilizer. 
+                    We're committed to revolutionizing agriculture through innovative, 
+                    eco-friendly solutions that deliver exceptional results.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#features">Perfect Solution</a></li>
+                    <li><a href="#features">Technology</a></li>
+                    <li><a href="#success">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#success">Case Studies</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+60172018149">+60 17-201 8149</a></li>
+                    <li><a href="#">Sean Sim</a></li>
+                    <li><a href="#">Malaysia</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Greenorm Sdn. Bhd. All rights reserved. | Malaysia's Trusted Agricultural Solutions Partner
+        </div>
     </footer>
+
+    <!-- Modal -->
+    <div id="palmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>🌴 Palm Oil Plantation Success Story</h2>
+                <div style="opacity: 0.9; margin-top: 0.5rem;">Myanmar & Indonesia - 2018</div>
+            </div>
+            <div class="modal-body">
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="https://raw.githubusercontent.com/seansim-kor/Greenorm/main/perfect-solution-palm.png" alt="Perfect Solution Palm Tree">
+                        <div class="image-label">Perfect Solution</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="https://raw.githubusercontent.com/seansim-kor/Greenorm/main/traditional-palm.png" alt="Traditional Fertilizer Palm Tree">
+                        <div class="image-label">Traditional Fertilizer</div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Current Situation</h3>
+                    <div class="modal-subsection">
+                        <h4>Growing Environment</h4>
+                        <ul>
+                            <li>Requires intense sunlight and 91 liters of water per day in tropical monsoon climate</li>
+                            <li>Fertilizer accounts for 80% of production costs</li>
+                        </ul>
+                    </div>
+                    <div class="modal-subsection">
+                        <h4>Problems with Traditional Methods</h4>
+                        <ul>
+                            <li>40% of chemical fertilizers replaced by compost made from palm oil production residue</li>
+                            <li>Fertilizer residues react with other substances, causing antagonistic effects</li>
+                            <li>Accelerated soil degradation due to salinity accumulation</li>
+                            <li>Growth deficiencies in palm trees, making it impossible to harvest desired palms</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Effects After Perfect Solution Application</h3>
+                    <div class="modal-subsection">
+                        <h4>Enhanced Productivity</h4>
+                        <ul>
+                            <li>100% crop absorption promotes growth, increases sweetness, and enhances yield</li>
+                            <li>50% reduction in production costs (compared to conventional chemical fertilizers)</li>
+                        </ul>
+                    </div>
+                    <div class="modal-subsection">
+                        <h4>Soil & Environmental Improvement</h4>
+                        <ul>
+                            <li>Neutralizes acidic and alkaline soils, resolves salinity accumulation</li>
+                            <li>Improves soil quality with sufficient nutrient supply</li>
+                        </ul>
+                    </div>
+                    <div class="modal-subsection">
+                        <h4>Pest Management</h4>
+                        <ul>
+                            <li>Enhances immunity to repel various bacteria</li>
+                            <li>Repels insects and moths with its smell, making prevention possible</li>
+                        </ul>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="big-number">-50%</div>
+                        <div style="font-size: 1.2rem;">Production Cost Reduction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('palmModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('palmModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('palmModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
